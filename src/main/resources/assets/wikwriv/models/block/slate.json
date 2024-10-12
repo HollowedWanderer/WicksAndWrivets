@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "wikwriv:block/slate",
+    "end": "wikwriv:block/slate_top"
+  }
+}
