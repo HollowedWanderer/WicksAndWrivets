@@ -3,12 +3,13 @@
   "package": "net.hollowed.wikwriv.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "PlayerFeaturesMixin"
+    "ArmorStandMixin",
+    "PlayerFeaturesMixin",
+    "ZombieMixin"
   ]
 }
