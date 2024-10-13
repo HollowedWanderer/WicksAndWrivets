@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "wikwriv:block/chimney_side"
+  }
+}

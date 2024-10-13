@@ -1,5 +1,6 @@
 package net.hollowed.wikwriv.common.blocks;
 
+import de.xyndra.wikwriv.common.blocks.ChimneyBlock;
 import net.hollowed.wikwriv.WicksWrivets;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -24,6 +25,12 @@ public class ModBlocks {
 
     public static final Block SLATE_BRICKS = registerBlock("slate_bricks",
             new PillarBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.DEEPSLATE).strength(5F, 6F)));
+
+    public static final Block CHIMNEY = registerBlock("chimney",
+            new ChimneyBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));
+
+    public static final Block CHIMNEY_NO_SMOKE = registerBlock("chimney_no_smoke",
+            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

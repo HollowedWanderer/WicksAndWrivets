@@ -5,6 +5,8 @@
   "block.wikwriv.filigreed_wrought_iron_block": "Filigreed Wrought Iron Block",
   "block.wikwriv.slate": "Slate",
   "block.wikwriv.slate_bricks": "Slate Bricks",
+  "block.wikwriv.chimney": "Chimney",
+  "block.wikwriv.chimney_no_smoke": "Chimney (No Smoke)",
 
   "itemGroup.wikwriv.wickswrivets": "Wicks & Wrivets"
 }

@@ -1,5 +1,6 @@
 package net.hollowed.wikwriv;
 
+import de.xyndra.wikwriv.common.blockentities.BlockEntityTypes;
 import net.fabricmc.api.ModInitializer;
 
 import net.hollowed.wikwriv.common.ModItemGroups;
@@ -21,6 +22,7 @@ public class WicksWrivets implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
+		BlockEntityTypes.INSTANCE.init();
 
 		LOGGER.info("Hello Fabric world!");
 	}
