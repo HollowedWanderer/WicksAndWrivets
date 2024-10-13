@@ -13,6 +13,8 @@ public class ModItems {
 
     public static final Item DOUBLE_TOP_HAT = registerItem("double_top_hat", new ArmorItem(ModArmorMaterials.TOP_HAT, net.minecraft.item.ArmorItem.Type.HELMET, (new Item.Settings())));
 
+    public static final Item BEESWAX = registerItem("beeswax", new Item(new Item.Settings()));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(WicksWrivets.MOD_ID, name), item);
     }
