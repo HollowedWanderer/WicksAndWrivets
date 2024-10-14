@@ -17,7 +17,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.ArmorStandEntity;
-import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.mob.*;
+import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
@@ -55,11 +56,11 @@ public class DoubleTopHatFeatureRenderer<T extends LivingEntity> extends Feature
 			int overlay = LivingEntityRenderer.getOverlay(livingEntity, 0.0F);
 
 			// Sync model pose based on the type of entity
-			if (livingEntity instanceof AbstractClientPlayerEntity playerEntity) {
-				syncModelPoseWithPlayer(this.getContextModel(), playerEntity);
+			if (livingEntity instanceof AbstractClientPlayerEntity || livingEntity instanceof StrayEntity || livingEntity instanceof BoggedEntity) {
+				syncModelPoseWithPlayer(this.getContextModel());
 			} else if (livingEntity instanceof ArmorStandEntity armorStandEntity) {
 				syncModelPoseWithArmorStand((BipedEntityModel<ArmorStandEntity>) this.getContextModel(), armorStandEntity);
-			} else if (livingEntity instanceof ZombieEntity) {
+			} else if (livingEntity instanceof ZombieEntity || livingEntity instanceof SkeletonEntity || livingEntity instanceof WitherSkeletonEntity || livingEntity instanceof VillagerEntity) {
 				syncModelPoseWithZober(this.getContextModel());
 			}
 
@@ -71,7 +72,7 @@ public class DoubleTopHatFeatureRenderer<T extends LivingEntity> extends Feature
 		}
 	}
 
-	private void syncModelPoseWithPlayer(BipedEntityModel<T> playerModel, AbstractClientPlayerEntity playerEntity) {
+	private void syncModelPoseWithPlayer(BipedEntityModel<T> playerModel) {
 		// Sync the hat with the player's head
 		hatModel.bb_main.copyTransform(playerModel.head);
 	}

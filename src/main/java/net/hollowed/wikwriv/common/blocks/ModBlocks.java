@@ -5,6 +5,7 @@ import de.xyndra.wikwriv.blocks.CogBlock;
 import net.hollowed.wikwriv.WicksWrivets;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.LanternBlock;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -28,10 +29,10 @@ public class ModBlocks {
             new PillarBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.DEEPSLATE).strength(5F, 6F)));
 
     public static final Block CHIMNEY = registerBlock("chimney",
-            new ChimneyBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));
+            new ChimneyBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F).nonOpaque()));
 
     public static final Block CHIMNEY_NO_SMOKE = registerBlock("chimney_no_smoke",
-            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));
+            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F).nonOpaque()));
 
     public static final Block COG = registerBlock("cog",
             new CogBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));

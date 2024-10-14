@@ -18,7 +18,10 @@ public class ModItemGroups {
             .entries((context, entries) -> {
                 entries.add(ModBlocks.WROUGHT_IRON_BLOCK);
                 entries.add(ModBlocks.FILIGREED_WROUGHT_IRON_BLOCK);
+                entries.add(ModItems.TOP_HAT);
+                entries.add(ModItems.DOUBLE_TOP_HAT);
                 entries.add(ModBlocks.SLATE);
+                entries.add(ModBlocks.SLATE_BRICKS);
             })
             .build();
 

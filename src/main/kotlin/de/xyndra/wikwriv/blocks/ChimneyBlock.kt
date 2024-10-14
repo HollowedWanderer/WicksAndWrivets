@@ -53,11 +53,11 @@ class ChimneyBlock(settings: Settings) : BlockWithEntity(settings.ticksRandomly(
                 simpleParticleType,
                 true,
                 pos.x + 0.5 + (random.nextDouble() / 3.0).randomPosNeg(random),
-                pos.y + random.nextDouble() + random.nextDouble(),
+                pos.y + 0.8 + random.nextDouble() + random.nextDouble(),
                 pos.z + 0.5 + (random.nextDouble() / 3.0).randomPosNeg(random),
-                0.0,
+                (random.nextDouble() * 0.0075).randomPosNeg(random) + 0.03,
                 0.07,
-                0.0
+                (random.nextDouble() * 0.05).randomPosNeg(random)
             )
         }
     }

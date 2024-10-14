@@ -11,7 +11,7 @@ class ChimneyBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(BlockEn
     companion object {
         fun smokeTick(world: World, pos: BlockPos, state: BlockState, blockEntity: ChimneyBlockEntity) {
             val random: Random = world.random
-            if (random.nextFloat() < 0.11F) {
+            if (random.nextFloat() < 0.26F) {
                 repeat(random.nextInt(2)+2) {
                     ChimneyBlock.Companion.spawnSmokeParticle(world, pos)
                 }

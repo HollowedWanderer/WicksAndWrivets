@@ -9,7 +9,11 @@
   },
   "client": [
     "ArmorStandMixin",
+    "BoggedMixin",
+    "IllagerMixin",
     "PlayerFeaturesMixin",
+    "SkeletonMixin",
+    "VillagerMixin",
     "ZombieMixin"
   ]
 }
