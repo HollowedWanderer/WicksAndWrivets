@@ -1,6 +1,7 @@
 package net.hollowed.wikwriv.common.blocks;
 
-import de.xyndra.wikwriv.common.blocks.ChimneyBlock;
+import de.xyndra.wikwriv.blocks.ChimneyBlock;
+import de.xyndra.wikwriv.blocks.CogBlock;
 import net.hollowed.wikwriv.WicksWrivets;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -31,6 +32,9 @@ public class ModBlocks {
 
     public static final Block CHIMNEY_NO_SMOKE = registerBlock("chimney_no_smoke",
             new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));
+
+    public static final Block COG = registerBlock("cog",
+            new CogBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

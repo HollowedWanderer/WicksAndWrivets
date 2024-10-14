@@ -1,6 +1,6 @@
-package de.xyndra.wikwriv.common.blockentities
+package de.xyndra.wikwriv.blockentities
 
-import de.xyndra.wikwriv.common.blocks.ChimneyBlock
+import de.xyndra.wikwriv.blocks.ChimneyBlock
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.util.math.BlockPos
@@ -13,7 +13,7 @@ class ChimneyBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(BlockEn
             val random: Random = world.random
             if (random.nextFloat() < 0.11F) {
                 repeat(random.nextInt(2)+2) {
-                    ChimneyBlock.spawnSmokeParticle(world, pos)
+                    ChimneyBlock.Companion.spawnSmokeParticle(world, pos)
                 }
             }
         }

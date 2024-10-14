@@ -9,9 +9,9 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    public static final Item TOP_HAT = registerItem("top_hat", new ArmorItem(ModArmorMaterials.TOP_HAT, net.minecraft.item.ArmorItem.Type.HELMET, (new Item.Settings())));
+    public static final Item TOP_HAT = registerItem("top_hat", new ArmorItem(ModArmorMaterials.TOP_HAT, ArmorItem.Type.HELMET, (new Item.Settings())));
 
-    public static final Item DOUBLE_TOP_HAT = registerItem("double_top_hat", new ArmorItem(ModArmorMaterials.TOP_HAT, net.minecraft.item.ArmorItem.Type.HELMET, (new Item.Settings())));
+    public static final Item DOUBLE_TOP_HAT = registerItem("double_top_hat", new ArmorItem(ModArmorMaterials.TOP_HAT, ArmorItem.Type.HELMET, (new Item.Settings())));
 
     public static final Item BEESWAX = registerItem("beeswax", new Item(new Item.Settings()));
 

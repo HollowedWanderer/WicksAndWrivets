@@ -2,8 +2,7 @@ package net.hollowed.wikwriv.client.renderer.player;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.hollowed.wikwriv.client.model.player.DoubleTopHatModel;
-import net.hollowed.wikwriv.common.items.ModItems;
+import net.hollowed.wikwriv.client.model.player.TripleTopHatModel;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
@@ -19,18 +18,24 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
+
 @Environment(EnvType.CLIENT)
-public class DoubleTopHatFeatureRenderer<T extends LivingEntity> extends FeatureRenderer<T, BipedEntityModel<T>> {
-	private final DoubleTopHatModel hatModel;
+public class TripleTopHatFeatureRenderer<T extends LivingEntity> extends FeatureRenderer<T, BipedEntityModel<T>> {
+	private final TripleTopHatModel hatModel;
 
 	private static final Identifier NORMAL_TEXTURE = Identifier.of("wikwriv", "textures/entity/top_hat.png");
 
-	public DoubleTopHatFeatureRenderer(FeatureRendererContext<T, BipedEntityModel<T>> context, ModelPart modelPart) {
+	public TripleTopHatFeatureRenderer(FeatureRendererContext<T, BipedEntityModel<T>> context, ModelPart modelPart) {
 		super(context);
-		this.hatModel = new DoubleTopHatModel(modelPart);
+		this.hatModel = new TripleTopHatModel(modelPart);
 	}
+
+	// TODO: Get Zarks name
+	static List<String> creators = List.of(new String[]{"Xyndra", "Xyndra2", "HollowedWanderer", "Zark"});
 
 	@Override
 	public void render(
@@ -47,8 +52,8 @@ public class DoubleTopHatFeatureRenderer<T extends LivingEntity> extends Feature
 	) {
 		ItemStack stack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
 
-		// Check if the entity is wearing the Top Hat item
-		if (!livingEntity.isInvisible() && stack.getItem() == ModItems.DOUBLE_TOP_HAT) {
+		// If no hat is equipped, give any of the creators (or entities named equally) a triple top hat
+		if (!livingEntity.isInvisible() && stack.getItem() == Items.AIR && creators.contains(livingEntity.getName().getString())) {
 			matrixStack.push();
 
 			// Overlay for lighting

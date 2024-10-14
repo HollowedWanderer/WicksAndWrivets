@@ -1,10 +1,10 @@
-package de.xyndra.wikwriv.common.blocks
+package de.xyndra.wikwriv.blocks
 
 import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
-import de.xyndra.wikwriv.common.blockentities.BlockEntityTypes
-import de.xyndra.wikwriv.common.blockentities.ChimneyBlockEntity
-import de.xyndra.wikwriv.common.randomPosNeg
+import de.xyndra.wikwriv.blockentities.BlockEntityTypes
+import de.xyndra.wikwriv.blockentities.ChimneyBlockEntity
+import de.xyndra.wikwriv.randomPosNeg
 import net.minecraft.block.BlockRenderType
 import net.minecraft.block.BlockState
 import net.minecraft.block.BlockWithEntity

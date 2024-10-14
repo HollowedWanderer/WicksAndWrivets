@@ -3,6 +3,7 @@ package net.hollowed.wikwriv.mixin;
 import net.hollowed.wikwriv.client.EntitiesClient;
 import net.hollowed.wikwriv.client.renderer.player.DoubleTopHatFeatureRenderer;
 import net.hollowed.wikwriv.client.renderer.player.TopHatFeatureRenderer;
+import net.hollowed.wikwriv.client.renderer.player.TripleTopHatFeatureRenderer;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
@@ -24,5 +25,6 @@ public abstract class PlayerFeaturesMixin extends LivingEntityRenderer<AbstractC
     private void addCustomFeature(EntityRendererFactory.Context ctx, boolean slim, CallbackInfo ci) {
         this.addFeature(new TopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.TOP_HAT_LAYER)));
         this.addFeature(new DoubleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.DOUBLE_TOP_HAT_LAYER)));
+        this.addFeature(new TripleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.TRIPLE_TOP_HAT_LAYER)));
     }
 }

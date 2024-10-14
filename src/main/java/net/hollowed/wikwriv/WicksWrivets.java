@@ -1,6 +1,6 @@
 package net.hollowed.wikwriv;
 
-import de.xyndra.wikwriv.common.blockentities.BlockEntityTypes;
+import de.xyndra.wikwriv.blockentities.BlockEntityTypes;
 import net.fabricmc.api.ModInitializer;
 
 import net.hollowed.wikwriv.common.ModItemGroups;

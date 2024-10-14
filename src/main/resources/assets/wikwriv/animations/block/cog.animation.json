@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"gear.spin": {
+			"loop": true,
+			"animation_length": 16.0,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"16.0": {
+							"vector": [0, 0, 360],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		},
+		"gear.spinOther": {
+			"loop": true,
+			"animation_length": 16.0,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"16.0": {
+							"vector": [0, 0, -360],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		},
+		"gear.static": {
+			"loop": true
+		}
+	},
+	"geckolib_format_version": 2
+}
