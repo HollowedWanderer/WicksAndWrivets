@@ -7,11 +7,16 @@ import net.minecraft.block.Block
 import net.minecraft.block.BlockRenderType
 import net.minecraft.block.BlockState
 import net.minecraft.block.BlockWithEntity
+import net.minecraft.block.ShapeContext
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.BooleanProperty
 import net.minecraft.state.property.IntProperty
+import net.minecraft.util.function.BooleanBiFunction
 import net.minecraft.util.math.BlockPos
+import net.minecraft.util.shape.VoxelShape
+import net.minecraft.util.shape.VoxelShapes
+import net.minecraft.world.BlockView
 
 class CogBlock(settings: Settings) : BlockWithEntity(settings.nonOpaque().noBlockBreakParticles()) {
     init {
@@ -26,6 +31,23 @@ class CogBlock(settings: Settings) : BlockWithEntity(settings.nonOpaque().noBloc
 
     override fun getCodec(): MapCodec<out BlockWithEntity?>? {
         return CODEC
+    }
+
+    fun makeShape(): VoxelShape {
+        var shape: VoxelShape = VoxelShapes.empty()
+        shape = VoxelShapes.combine(shape, VoxelShapes.cuboid(0.375, 0.375, 0.0, 0.625, 0.625, 1.0), BooleanBiFunction.OR)
+        shape = VoxelShapes.combine(shape, VoxelShapes.cuboid(0.25, 0.25, 0.375, 0.75, 0.75, 0.625), BooleanBiFunction.OR)
+        shape = VoxelShapes.combine(shape, VoxelShapes.cuboid(0.0, 0.0, 0.425, 1.0, 1.0, 0.575), BooleanBiFunction.OR)
+        return shape
+    }
+
+    override fun getOutlineShape(
+        state: BlockState?,
+        view: BlockView?,
+        pos: BlockPos?,
+        context: ShapeContext?
+    ): VoxelShape? {
+        return makeShape()
     }
 
     override fun createBlockEntity(
