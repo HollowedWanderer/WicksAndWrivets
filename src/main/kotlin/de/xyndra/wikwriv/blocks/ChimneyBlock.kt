@@ -80,7 +80,7 @@ class ChimneyBlock(settings: Settings) : BlockWithEntity(settings) {
                 pos.z + 0.5 + (random.nextDouble() / 3.0).randomPosNeg(random),
                 (random.nextDouble() * 0.0075).randomPosNeg(random) + 0.03,
                 0.07,
-                (random.nextDouble() * 0.05).randomPosNeg(random)
+                (random.nextDouble() * 0.005).randomPosNeg(random)
             )
         }
     }
