@@ -23,6 +23,7 @@ public class ModItemGroups {
                 entries.add(ModBlocks.SLATE);
                 entries.add(ModBlocks.SLATE_BRICKS);
                 entries.add(ModBlocks.CHIMNEY);
+                entries.add(ModBlocks.LARGE_CANDLE);
             })
             .build();
 

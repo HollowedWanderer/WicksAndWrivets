@@ -2,10 +2,10 @@ package net.hollowed.wikwriv.common.blocks;
 
 import de.xyndra.wikwriv.blocks.ChimneyBlock;
 import de.xyndra.wikwriv.blocks.CogBlock;
+import de.xyndra.wikwriv.blocks.LargeCandleBlock;
 import net.hollowed.wikwriv.WicksWrivets;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.LanternBlock;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -36,6 +36,10 @@ public class ModBlocks {
 
     public static final Block COG = registerBlock("cog",
             new CogBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(5F, 6F)));
+
+    public static final Block LARGE_CANDLE = registerBlock("large_candle",
+            new LargeCandleBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CANDLE).strength(5F, 6F)
+                    .luminance(state -> 15)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
