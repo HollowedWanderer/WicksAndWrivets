@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "#C#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:black_wool"
+    },
+    "C": {
+      "item": "minecraft:cyan_wool"
+    }
+  },
+  "result": {
+    "id": "wikwriv:top_hat",
+    "count": 1
+  }
+}

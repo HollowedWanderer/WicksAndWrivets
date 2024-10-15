@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "wikwriv:top_hat"
+    }
+  },
+  "result": {
+    "id": "wikwriv:double_top_hat",
+    "count": 1
+  }
+}
