@@ -42,7 +42,8 @@
 		"fabricloader": ">=0.16.7",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"geckolib": ">=4.6.6"
 	},
 	"suggests": {
 		"another-mod": "*"

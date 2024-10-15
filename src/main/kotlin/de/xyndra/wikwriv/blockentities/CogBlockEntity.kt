@@ -12,29 +12,34 @@ import software.bernie.geckolib.animation.AnimationState
 import software.bernie.geckolib.animation.PlayState
 import software.bernie.geckolib.animation.RawAnimation
 import software.bernie.geckolib.util.GeckoLibUtil
-import kotlin.random.Random
 
 class CogBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(BlockEntityTypes.COG_BLOCKENTITY_TYPE, pos, state), GeoBlockEntity {
-    val direction = Random.nextBoolean()
     override fun registerControllers(controllers: AnimatableManager.ControllerRegistrar) {
         controllers.add(AnimationController(this, ::deployAnimController))
     }
 
-    fun deployAnimController(state: AnimationState<CogBlockEntity>): PlayState {
+    override fun shouldPlayAnimsWhileGamePaused(): Boolean {
+        return true
+    }
+
+    fun getNecessaryData(): Triple<Float, Boolean, Boolean>? {
         var speed = 1.0f
+        var clockwise = false
+        var offset = false
         if (world != null) {
             val state = world!!.getBlockState(pos)
             if (state.block !is CogBlock) {
-                return PlayState.STOP
+                return null
             }
-            speed = 0.0f + state[CogBlock.SPINNY] * 1f/16f
+            speed = 0.0f + state[CogBlock.SPINNY].toFloat()
+            clockwise = state[CogBlock.CW]
+            offset = state[CogBlock.OFFSET]
         }
-        state.setControllerSpeed(speed)
-        return if (direction) {
-            state.setAndContinue(RawAnimation.begin().thenLoop("gear.spin"))
-        } else {
-            state.setAndContinue(RawAnimation.begin().thenLoop("gear.spinOther"))
-        }
+        return Triple(speed, clockwise, offset)
+    }
+
+    fun deployAnimController(state: AnimationState<CogBlockEntity>): PlayState {
+        return state.setAndContinue(RawAnimation.begin().thenLoop("gear.static"))
     }
 
     override fun getAnimatableInstanceCache(): AnimatableInstanceCache {

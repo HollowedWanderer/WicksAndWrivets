@@ -9,16 +9,19 @@ import net.minecraft.block.BlockState
 import net.minecraft.block.BlockWithEntity
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.state.StateManager
+import net.minecraft.state.property.BooleanProperty
 import net.minecraft.state.property.IntProperty
 import net.minecraft.util.math.BlockPos
 
 class CogBlock(settings: Settings) : BlockWithEntity(settings.nonOpaque().noBlockBreakParticles()) {
     init {
-        defaultState = this.stateManager.defaultState.with(SPINNY, 1)
+        defaultState = this.stateManager.defaultState.with(SPINNY, 1).with(CW, true).with(OFFSET, false)
     }
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
         builder!!.add(SPINNY)
+        builder.add(CW)
+        builder.add(OFFSET)
     }
 
     override fun getCodec(): MapCodec<out BlockWithEntity?>? {
@@ -43,5 +46,7 @@ class CogBlock(settings: Settings) : BlockWithEntity(settings.nonOpaque().noBloc
             ).apply(instance, ::CogBlock)
         }
         val SPINNY: IntProperty = IntProperty.of("spinny", 0, 15)
+        val CW: BooleanProperty = BooleanProperty.of("clockwise")
+        val OFFSET: BooleanProperty = BooleanProperty.of("offset")
     }
 }

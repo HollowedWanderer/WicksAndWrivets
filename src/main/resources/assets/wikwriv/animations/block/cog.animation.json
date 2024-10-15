@@ -18,6 +18,23 @@
 				}
 			}
 		},
+		"gear.spinOffset": {
+			"loop": true,
+			"animation_length": 16.0,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 22.5]
+						},
+						"16.0": {
+							"vector": [0, 0, 382.5],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		},
 		"gear.spinOther": {
 			"loop": true,
 			"animation_length": 16.0,
@@ -35,8 +52,22 @@
 				}
 			}
 		},
-		"gear.static": {
-			"loop": true
+		"gear.spinOtherOffset": {
+			"loop": true,
+			"animation_length": 16.0,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, -22.5]
+						},
+						"16.0": {
+							"vector": [0, 0, -382.5],
+							"easing": "linear"
+						}
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2
