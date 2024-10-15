@@ -22,6 +22,7 @@ public class ModItemGroups {
                 entries.add(ModItems.DOUBLE_TOP_HAT);
                 entries.add(ModBlocks.SLATE);
                 entries.add(ModBlocks.SLATE_BRICKS);
+                entries.add(ModBlocks.CHIMNEY);
             })
             .build();
 
