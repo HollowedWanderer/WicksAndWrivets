@@ -10,10 +10,6 @@ fun Double.randomPosNeg(random: Random): Double {
     }
 }
 
-fun Float.randomPosNeg(): Float {
-    return if (kotlin.random.Random.nextBoolean()) {
-        this
-    } else {
-        -this
-    }
+operator fun String.minus(other: String): String {
+    return this.replace(other, "")
 }

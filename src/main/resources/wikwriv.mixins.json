@@ -3,6 +3,8 @@
   "package": "net.hollowed.wikwriv.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ChunkGeneratorsMixin",
+    "MinecraftServerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

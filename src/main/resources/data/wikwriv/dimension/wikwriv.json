@@ -1,0 +1,10 @@
+{
+  "type": "wikwriv:wikwriv",
+  "generator": {
+    "type": "minecraft:wikwriv",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:the_void"
+    }
+  }
+}
