@@ -2,8 +2,6 @@ package de.xyndra.wikwriv.worldgen
 
 import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
-import net.minecraft.block.BlockState
-import net.minecraft.block.Blocks
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.ChunkRegion
 import net.minecraft.world.HeightLimitView
@@ -57,7 +55,7 @@ class WikWrivLevelSource(customBiomeSource: BiomeSource) : ChunkGenerator(custom
         structureAccessor: StructureAccessor?,
         chunk: Chunk?
     ): CompletableFuture<Chunk?>? {
-        return CompletableFuture.completedFuture(chunk);
+        return CompletableFuture.completedFuture(chunk)
     }
 
     override fun getSeaLevel(): Int {
@@ -84,7 +82,7 @@ class WikWrivLevelSource(customBiomeSource: BiomeSource) : ChunkGenerator(custom
         world: HeightLimitView?,
         noiseConfig: NoiseConfig?
     ): VerticalBlockSample? {
-        return VerticalBlockSample(0, arrayOfNulls(0));
+        return VerticalBlockSample(0, arrayOfNulls(0))
     }
 
     override fun getDebugHudText(
@@ -105,6 +103,5 @@ class WikWrivLevelSource(customBiomeSource: BiomeSource) : ChunkGenerator(custom
                     levelSourceInstance.stable(Function { biomeSource: BiomeSource -> WikWrivLevelSource(biomeSource) })
                 )
             }
-        private val DIRT: BlockState = Blocks.DIRT.defaultState
     }
 }

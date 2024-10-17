@@ -2,7 +2,7 @@ package net.hollowed.wikwriv.mixin;
 
 import de.xyndra.wikwriv.ResourceUtil;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.SaveProperties;
+import net.minecraft.world.level.storage.LevelStorage;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,18 +17,20 @@ import java.util.List;
 public class MinecraftServerMixin {
     @Final
     @Shadow
-    protected SaveProperties saveProperties;
-    @Inject(method = "loadWorld", at = @At("TAIL"))
-    protected void loadWorld(CallbackInfo ci) {
-        Path worldPath = Path.of("").resolve("saves").resolve(saveProperties.getLevelName());
+    protected LevelStorage.Session session;
+    @Inject(method = "runServer", at = @At("HEAD"))
+    protected void runServer(CallbackInfo ci) {
+        Path worldPath = Path.of("").resolve("saves").resolve(session.getDirectory().path());
         // Copy dimension data from resources to world folder
-        Path dimensionDataPath = worldPath.resolve("dimensions").resolve("wikwriv");
+        Path dimensionDataPath = worldPath.resolve("dimensions").resolve("wikwriv").resolve("wikwriv");
         if (!dimensionDataPath.toFile().exists()) {
             dimensionDataPath.toFile().mkdirs();
         }
-        List<String> resources = ResourceUtil.INSTANCE.getFilesInResourceDir("/dimension_data/wikwriv");
+        String resourcePath = "/dimension_data/wikwriv";
+        List<String> resources = ResourceUtil.INSTANCE.getFilesInResourceDir(resourcePath);
         for (String resource : resources) {
-            ResourceUtil.INSTANCE.copyResourceToDir("/dimension_data/wikwriv/" + resource, dimensionDataPath);
+            System.out.println("Copying " + resource + " to " + dimensionDataPath);
+            ResourceUtil.INSTANCE.copyResourceToDir(resource, resourcePath, dimensionDataPath);
         }
     }
 }
