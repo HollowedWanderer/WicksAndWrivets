@@ -6,9 +6,9 @@ This is a Minecraft mod created for Modfest 2024.
 
 ## Development Setup
 1. Ideally, put Axiom or whatever you like for building into `run/mods`.
-2. Run once and create a world *with "dev"* in the name. <br>
-   MAKE SURE THAT THE DATA GOT FROM `src/main/resources/dimension_data` COPIED INTO ITS FOLDER!!!.
-3. Make sure that they actually get commited. Maybe this can help: `git config core.symlinks true`
+2. Create the symlink, for example(run this in cmd, now powershell): `mklink /D "D:\Code\Minecraft\WicksAndWrivets\src\main\resources\dimension_data" "D:\Code\Minecraft\WicksAndWrivets\run\saves\DevWorld\dimensions\wikwriv"`
+3. Make some changes in the dev world
+4. Make sure that they actually get commited. Maybe this can help: `git config core.symlinks true`
 
 How to get into the dimension:
 ```
