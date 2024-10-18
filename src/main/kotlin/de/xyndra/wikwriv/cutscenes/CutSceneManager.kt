@@ -5,7 +5,7 @@ import de.xyndra.wikwriv.cutscenes.actions.ConsoleAction
 import de.xyndra.wikwriv.cutscenes.actions.WaitAction
 import net.minecraft.text.Text
 
-data class CutScene(val context: RootContext)
+typealias CutScene = RootContext
 
 object CutSceneManager {
     val cutsceneRegistry = mutableMapOf<String, CutScene>()
@@ -16,12 +16,12 @@ object CutSceneManager {
 
     fun play(name: String): Boolean {
         val cutscene = cutsceneRegistry[name] ?: return false
-        cutscene.context.play()
+        cutscene.play()
         return true
     }
 
     fun register() {
-        cutsceneRegistry.put("test", CutScene(RootContext {
+        cutsceneRegistry.put("test", CutScene {
             - ConsoleAction("Hello, world!").afterExecution {
                 - ConsoleAction("This is a test callback!")
                 - WaitAction(1000)
@@ -29,6 +29,6 @@ object CutSceneManager {
                 println("This is also a test callback!")
             }
             - ConsoleAction("This is a test cutscene!")
-        }))
+        })
     }
 }
