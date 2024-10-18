@@ -2,7 +2,9 @@ package de.xyndra.wikwriv.cutscenes
 
 import de.xyndra.wikwriv.cutscenes.actions.BlockInputAction
 import de.xyndra.wikwriv.cutscenes.actions.ChatAction
+import de.xyndra.wikwriv.cutscenes.actions.CloseWindowsAction
 import de.xyndra.wikwriv.cutscenes.actions.ConsoleAction
+import de.xyndra.wikwriv.cutscenes.actions.FixedCameraAction
 import de.xyndra.wikwriv.cutscenes.actions.UnblockInputAction
 import de.xyndra.wikwriv.cutscenes.actions.WaitAction
 import net.minecraft.text.Text
@@ -42,6 +44,21 @@ object CutSceneManager {
             - WaitAction(1000)
             - ChatAction(Text.of("Stopped Blocking!"))
             - UnblockInputAction()
+        })
+        cutsceneRegistry.put("losingControl", CutScene {
+            - ChatAction(Text.of("You are about to lose control!"))
+            - WaitAction(3000)
+            - CloseWindowsAction()
+            - ChatAction(Text.of("You have lost your window!"))
+            - WaitAction(3000)
+            - BlockInputAction()
+            - ChatAction(Text.of("You have lost your input!"))
+            - WaitAction(3000)
+            - FixedCameraAction()
+            - ChatAction(Text.of("You have lost control over camera!"))
+            - WaitAction(3000)
+            - UnblockInputAction()
+            - ChatAction(Text.of("You have regained control!"))
         })
     }
 }

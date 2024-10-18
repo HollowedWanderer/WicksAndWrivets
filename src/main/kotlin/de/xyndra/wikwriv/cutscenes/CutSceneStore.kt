@@ -7,6 +7,7 @@ object CutSceneStore {
     private val todos = mutableListOf<(MinecraftClient) -> Unit>()
     private val inputBlockerLock = Object()
     private var inputBlocker = false
+    private var cameraBlocker = false
 
     fun runTodos(client: MinecraftClient) = synchronized(todoLock) {
         todos.forEach { it(client) }
@@ -21,11 +22,20 @@ object CutSceneStore {
         inputBlocker = true
     }
 
+    fun blockCamera() = synchronized(inputBlockerLock) {
+        cameraBlocker = true
+    }
+
     fun unblockInput() = synchronized(inputBlockerLock) {
         inputBlocker = false
+        cameraBlocker = false
     }
 
     fun isInputBlocked(): Boolean = synchronized(inputBlockerLock) {
         inputBlocker
+    }
+
+    fun isCameraBlocked(): Boolean = synchronized(inputBlockerLock) {
+        cameraBlocker
     }
 }
