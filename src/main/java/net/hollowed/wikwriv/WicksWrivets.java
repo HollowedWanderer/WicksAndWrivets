@@ -9,6 +9,8 @@ import net.hollowed.wikwriv.common.items.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static de.xyndra.wikwriv.events.EventRegisterKt.registerEvents;
+
 public class WicksWrivets implements ModInitializer {
 	public static final String MOD_ID = "wikwriv";
 
@@ -23,6 +25,7 @@ public class WicksWrivets implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
 		BlockEntityTypes.INSTANCE.init();
+		registerEvents();
 
 		LOGGER.info("Hello Fabric world!");
 	}

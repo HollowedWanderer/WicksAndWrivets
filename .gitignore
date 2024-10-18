@@ -32,7 +32,7 @@ bin/
 
 run/
 !run/saves/DevWorld/dimensions/wikwriv
-!run/saves/DevWorld/level.dat
+run/saves/DevWorld/dimensions/wikwriv/wikwriv/data
 src/main/resources/dimension_data
 
 # java
