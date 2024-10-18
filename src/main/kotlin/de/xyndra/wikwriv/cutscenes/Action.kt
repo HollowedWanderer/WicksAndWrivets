@@ -1,7 +1,7 @@
 package de.xyndra.wikwriv.cutscenes
 
-interface Action {
-    fun execute()
+abstract class Action {
+    abstract fun execute()
     fun start(context: CutSceneContext) {
         execute()
         cleanup()
@@ -9,8 +9,8 @@ interface Action {
         subContext.callback()
         context.subContext = subContext
     }
-    fun cleanup()
-    var callback: CutSceneContext.() -> Unit
+    abstract fun cleanup()
+    var callback: CutSceneContext.() -> Unit = {}
     fun afterExecution(callback: CutSceneContext.() -> Unit): Action {
         this.callback = callback
         return this

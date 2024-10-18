@@ -13,6 +13,8 @@
     "ArmorStandMixin",
     "BoggedMixin",
     "IllagerMixin",
+    "KeyboardMixin",
+    "MouseMixin",
     "PlayerFeaturesMixin",
     "SkeletonMixin",
     "VillagerMixin",

@@ -1,11 +1,14 @@
 package de.xyndra.wikwriv.cutscenes
 
 class RootContext(val callback: CutSceneContext.() -> Unit) {
-    fun play() {
+    fun play(forceConcurrent: Boolean = false) {
         Thread {
             val context = CutSceneContext()
             callback(context)
             context.start()
+            if (!forceConcurrent) {
+                CutSceneStore.unblockInput()
+            }
         }.start()
     }
 }
@@ -29,14 +32,12 @@ class CutSceneContext {
 fun group(callback: CutSceneContext.() -> Unit): Action {
     val subContext = CutSceneContext()
     subContext.callback()
-    return object : Action {
+    return object : Action() {
         override fun execute() {
             subContext.start()
         }
 
         override fun cleanup() {
         }
-
-        override var callback: CutSceneContext.() -> Unit = {}
     }
 }
