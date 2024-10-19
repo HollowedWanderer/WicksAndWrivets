@@ -22,7 +22,7 @@ public class MinecraftServerMixin {
     protected LevelStorage.Session session;
     @Inject(method = "runServer", at = @At("HEAD"))
     protected void runServer(CallbackInfo ci) {
-        Path worldPath = Path.of("").resolve("saves").resolve(session.getDirectory().path());
+        Path worldPath = Path.of("").resolve(session.getDirectory().path());
         // Copy dimension data from resources to world folder
         Path dimensionDataPath = worldPath.resolve("dimensions").resolve("wikwriv").resolve("wikwriv");
         if (worldPath.toString().toLowerCase().contains("dev") && Files.exists(dimensionDataPath)) {

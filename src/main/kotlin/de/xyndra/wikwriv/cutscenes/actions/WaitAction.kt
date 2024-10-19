@@ -1,12 +1,12 @@
 package de.xyndra.wikwriv.cutscenes.actions
 
+import de.xyndra.wikwriv.Side
 import de.xyndra.wikwriv.cutscenes.Action
-import de.xyndra.wikwriv.cutscenes.CutSceneContext
 
 class WaitAction(val millis: Long) : Action() {
-    override fun execute() {
+    override fun execute(side: Side) {
         Thread.sleep(millis)
     }
 
-    override fun cleanup() {}
+    override fun cleanup(side: Side) {}
 }

@@ -1,6 +1,6 @@
 package net.hollowed.wikwriv.mixin;
 
-import net.hollowed.wikwriv.client.EntitiesClient;
+import net.hollowed.wikwriv.client.WicksWrivetsClient;
 import net.hollowed.wikwriv.client.renderer.player.DoubleTopHatFeatureRenderer;
 import net.hollowed.wikwriv.client.renderer.player.TopHatFeatureRenderer;
 import net.minecraft.client.render.entity.ArmorStandEntityRenderer;
@@ -22,7 +22,7 @@ public abstract class ArmorStandMixin extends LivingEntityRenderer<ArmorStandEnt
 
     @Inject(method = "<init>", at = @At("CTOR_HEAD"))
     public void addCustomFeature(EntityRendererFactory.Context context, CallbackInfo ci) {
-        this.addFeature(new TopHatFeatureRenderer(this, context.getModelLoader().getModelPart(EntitiesClient.TOP_HAT_LAYER)));
-        this.addFeature(new DoubleTopHatFeatureRenderer(this, context.getModelLoader().getModelPart(EntitiesClient.DOUBLE_TOP_HAT_LAYER)));
+        this.addFeature(new TopHatFeatureRenderer(this, context.getModelLoader().getModelPart(WicksWrivetsClient.TOP_HAT_LAYER)));
+        this.addFeature(new DoubleTopHatFeatureRenderer(this, context.getModelLoader().getModelPart(WicksWrivetsClient.DOUBLE_TOP_HAT_LAYER)));
     }
 }

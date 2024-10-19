@@ -1,12 +1,14 @@
 package de.xyndra.wikwriv.cutscenes
 
+import de.xyndra.wikwriv.Side
+
 class RootContext(val callback: CutSceneContext.() -> Unit) {
-    fun play(forceConcurrent: Boolean = false) {
+    fun play(side: Side, forceConcurrent: Boolean = false) {
         Thread {
             val context = CutSceneContext()
             callback(context)
-            context.start()
-            if (!forceConcurrent) {
+            context.start(side)
+            if (!forceConcurrent && side == Side.CLIENT) {
                 CutSceneStore.unblockInput()
             }
         }.start()
@@ -16,10 +18,10 @@ class RootContext(val callback: CutSceneContext.() -> Unit) {
 class CutSceneContext {
     val actions = mutableListOf<Action>()
     var subContext: CutSceneContext? = null
-    fun start() {
+    fun start(side: Side) {
         actions.forEach {
-            it.start(this)
-            subContext?.start()
+            it.start(this, side)
+            subContext?.start(side)
             subContext = null
         }
     }
@@ -33,11 +35,11 @@ fun group(callback: CutSceneContext.() -> Unit): Action {
     val subContext = CutSceneContext()
     subContext.callback()
     return object : Action() {
-        override fun execute() {
-            subContext.start()
+        override fun execute(side: Side) {
+            subContext.start(side)
         }
 
-        override fun cleanup() {
+        override fun cleanup(side: Side) {
         }
     }
 }

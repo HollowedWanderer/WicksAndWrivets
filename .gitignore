@@ -33,6 +33,7 @@ bin/
 run/
 !run/saves/DevWorld/dimensions/wikwriv
 run/saves/DevWorld/dimensions/wikwriv/wikwriv/data
+runServer/
 src/main/resources/dimension_data
 
 # java

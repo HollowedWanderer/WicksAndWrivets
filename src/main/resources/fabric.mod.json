@@ -24,7 +24,7 @@
 		"client": [
 			{
 				"adapter": "kotlin",
-				"value": "net.hollowed.wikwriv.client.EntitiesClient"
+				"value": "net.hollowed.wikwriv.client.WicksWrivetsClient"
 			}
 		],
 		"fabric-datagen": [

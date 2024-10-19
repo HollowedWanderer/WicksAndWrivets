@@ -1,6 +1,6 @@
 package net.hollowed.wikwriv.mixin;
 
-import net.hollowed.wikwriv.client.EntitiesClient;
+import net.hollowed.wikwriv.client.WicksWrivetsClient;
 import net.hollowed.wikwriv.client.renderer.player.DoubleTopHatFeatureRenderer;
 import net.hollowed.wikwriv.client.renderer.player.TopHatFeatureRenderer;
 import net.hollowed.wikwriv.client.renderer.player.TripleTopHatFeatureRenderer;
@@ -23,8 +23,8 @@ public abstract class PlayerFeaturesMixin extends LivingEntityRenderer<AbstractC
 
     @Inject(method = "<init>", at = @At("CTOR_HEAD"))
     private void addCustomFeature(EntityRendererFactory.Context ctx, boolean slim, CallbackInfo ci) {
-        this.addFeature(new TopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.TOP_HAT_LAYER)));
-        this.addFeature(new DoubleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.DOUBLE_TOP_HAT_LAYER)));
-        this.addFeature(new TripleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.TRIPLE_TOP_HAT_LAYER)));
+        this.addFeature(new TopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(WicksWrivetsClient.TOP_HAT_LAYER)));
+        this.addFeature(new DoubleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(WicksWrivetsClient.DOUBLE_TOP_HAT_LAYER)));
+        this.addFeature(new TripleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(WicksWrivetsClient.TRIPLE_TOP_HAT_LAYER)));
     }
 }

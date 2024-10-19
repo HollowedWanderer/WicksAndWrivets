@@ -1,6 +1,6 @@
 package net.hollowed.wikwriv.mixin;
 
-import net.hollowed.wikwriv.client.EntitiesClient;
+import net.hollowed.wikwriv.client.WicksWrivetsClient;
 import net.hollowed.wikwriv.client.renderer.illager.IllagerDoubleTopHatFeatureRenderer;
 import net.hollowed.wikwriv.client.renderer.illager.IllagerTopHatFeatureRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
@@ -22,8 +22,8 @@ public abstract class IllagerMixin<T extends IllagerEntity> extends MobEntityRen
 
     @Inject(method = "<init>", at = @At("TAIL"))
     public void addCustomFeature(EntityRendererFactory.Context ctx, IllagerEntityModel<IllagerEntity> model, float shadowRadius, CallbackInfo ci) {
-        this.addFeature(new IllagerTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.TOP_HAT_LAYER)));
-        this.addFeature(new IllagerDoubleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.DOUBLE_TOP_HAT_LAYER)));
+        this.addFeature(new IllagerTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(WicksWrivetsClient.TOP_HAT_LAYER)));
+        this.addFeature(new IllagerDoubleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(WicksWrivetsClient.DOUBLE_TOP_HAT_LAYER)));
     }
 }
 

@@ -1,6 +1,6 @@
 package net.hollowed.wikwriv.mixin;
 
-import net.hollowed.wikwriv.client.EntitiesClient;
+import net.hollowed.wikwriv.client.WicksWrivetsClient;
 import net.hollowed.wikwriv.client.renderer.villager.VillagerDoubleTopHatFeatureRenderer;
 import net.hollowed.wikwriv.client.renderer.villager.VillagerTopHatFeatureRenderer;
 import net.minecraft.client.render.entity.*;
@@ -20,7 +20,7 @@ public abstract class VillagerMixin extends MobEntityRenderer<VillagerEntity, Vi
 
     @Inject(method = "<init>", at = @At("CTOR_HEAD"))
     public void addCustomFeature(EntityRendererFactory.Context ctx, CallbackInfo ci) {
-        this.addFeature(new VillagerTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.TOP_HAT_LAYER)));
-        this.addFeature(new VillagerDoubleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(EntitiesClient.DOUBLE_TOP_HAT_LAYER)));
+        this.addFeature(new VillagerTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(WicksWrivetsClient.TOP_HAT_LAYER)));
+        this.addFeature(new VillagerDoubleTopHatFeatureRenderer(this, ctx.getModelLoader().getModelPart(WicksWrivetsClient.DOUBLE_TOP_HAT_LAYER)));
     }
 }
